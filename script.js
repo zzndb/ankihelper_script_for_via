@@ -396,13 +396,13 @@ function getUrlIntent(sentence, target, url){
     "category=android.intent.category.DEFAULT;"+
     "type=text/plain;component=com.mmjang.ankihelper/com.mmjang.ankihelper.ui.PopupActivity;" +
     "S.android.intent.extra.TEXT=" + sentence + ";" + 
-    //"com.mmjang.ankihelper.target_word=" + target + ";" + 
-    //"com.mmjagn.ankihelper.url=" + url + ";" +   
+    "S.com.mmjang.ankihelper.target_word=" + target + ";" + 
+    "S.com.mmjagn.ankihelper.url=" + url + ";" +   
     "end;";
     return intent_url;
 }
 //console.log("javascript injected");
-var button_com_mmjang_ankihelper = document.createElement("Button");
+var button_com_mmjang_ankihelper = document.createElement("a");
 button_com_mmjang_ankihelper.innerHTML = "Anki1";
-button_com_mmjang_ankihelper.style = "bottom:5%;right:40%;position:fixed;z-index:9999;font-size:150%;"
+button_com_mmjang_ankihelper.style = "bottom:5%;right:40%;position:fixed;z-index:9999;font-size:200%;background-color:green;"
 document.body.appendChild(button_com_mmjang_ankihelper);
