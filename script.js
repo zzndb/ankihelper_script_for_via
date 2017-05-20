@@ -404,5 +404,5 @@ function getUrlIntent(sentence, target, url){
 //console.log("javascript injected");
 var button_com_mmjang_ankihelper = document.createElement("Button");
 button_com_mmjang_ankihelper.innerHTML = "Anki";
-button_com_mmjang_ankihelper.style = "bottom:5%;right:40%;position:fixed;z-index:9999;font-size:150%;display:none;"
+button_com_mmjang_ankihelper.style = "bottom:5%;right:40%;position:fixed;z-index:9999;font-size:150%;"
 document.body.appendChild(button_com_mmjang_ankihelper);
