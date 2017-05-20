@@ -358,17 +358,24 @@ var showPopup = function(){
     {
         if(selection.indexOf(" ") > -1)
         {
-            selection = selection.replace(/(\r\n|\n|\r)/gm,"");
-            ankihelper.showToast(selection, "", window.location.href);
+            //selection = selection.replace(/(\r\n|\n|\r)/gm,"");
+            //ankihelper.showToast(selection, "", window.location.href);
+            button_com_mmjang_ankihelper.style.display = "block";
+            button_com_mmjang_ankihelper.href = getUrlIntent(selection, "", window.location.href);
         }
         else{
             var textSource = textSourceFromPoint({x:cursorXXX, y:cursorYYY});
                 	var sentence = extractSentence(textSource, 400);
-                	console.log(sentence);
-                	sentence = sentence.replace(/(\r\n|\n|\r)/gm,"");
-                	ankihelper.showToast(sentence, selection, window.location.href);
+                	//console.log(sentence);
+                	//sentence = sentence.replace(/(\r\n|\n|\r)/gm,"");
+                	//ankihelper.showToast(sentence, selection, window.location.href);
+            button_com_mmjang_ankihelper.style.display = "block";
+            button_com_mmjang_ankihelper.href = getUrlIntent(sentence, selection, window.location.href);
         }
 
+    }
+    else{
+        button_com_mmjang_ankihelper.style.display = "none";
     }
 }
 
@@ -382,4 +389,20 @@ document.addEventListener("selectionchange", function(e) {
     //window.alert("touchend");
     //showPopup();
 });
-console.log("javascript injected");
+
+
+function getUrlIntent(sentence, target, url){
+    var intent_url = "intent:#Intent;action=android.intent.action.SEND;" +
+    "category=android.intent.category.DEFAULT;"+
+    "type=text/plain;component=com.mmjang.ankihelper/com.mmjang.ankihelper.ui.PopupActivity;" +
+    "S.android.intent.extra.TEXT=" + sentence + ";" + 
+    "S.com.mmjang.ankihelper.target_word=" + target + ";" + 
+    "S.com.mmjagn.ankihelper.url=" + url + ";" +   
+    "end;";
+    return intent_url;
+}
+//console.log("javascript injected");
+var button_com_mmjang_ankihelper = document.createElement("Button");
+button_com_mmjang_ankihelper.innerHTML = "Anki";
+button_com_mmjang_ankihelper.style = "bottom:5%;right:40%;position:fixed;z-index:9999;font-size:150%;display:none;"
+document.body.appendChild(button_com_mmjang_ankihelper);
